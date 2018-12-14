@@ -27,7 +27,7 @@ The following is the general flow for prepaid developers.
 ![accept terms and conditions](images/purchase-rateplan3-accept-terms.png)
 
 5. The developer accepts the terms and conditions.
-![accept terms and conditions](purchase-rateplan4-terms-conditions-page.png)
+![accept terms and conditions](images/purchase-rateplan4-terms-conditions-page.png)
 
 6. Now the developer is able to purchase the plan.
 ![purchase plan](images/purchase-rateplan5-can-purchase.png)
