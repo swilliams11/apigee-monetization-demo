@@ -5,6 +5,13 @@ This repository walks through some basic use cases of how to configure Monetizat
 ## Assumptions
 This documentation assumes that you are familiar with [Apigee Monetization concepts](https://docs.apigee.com/api-platform/monetization/basics-monetization) and that you are comfortable setting up [Monetization rate plans](https://docs.apigee.com/api-platform/monetization/create-rate-plans).
 
+## TOC
+* [Prepaid Developer Flow](#prepaid-developer-flow)
+* [Limiting a Rate Plan to subset of developers](#limiting-a-rate-plan-to-subset-of-developers)
+* [Terms and Conditions](#terms-and-conditions)
+* [Change which role has access to the Monetization Role in Developer Portal](#change-which-role-has-access-to-the-monetization-role-in-developer-portal)
+
+
 ## Prepaid Developer Flow
 The following is the general flow for prepaid developers.  
 
@@ -75,7 +82,7 @@ The screen shot below displays the message "You must accept the Terms and Condit
 
 However, a developer can continue to use the plans they purchased previously without interruption, even if they don't accept the new terms and conditions.  
 
-## Monetization in Developer Portal
+## Change which role has access to the Monetization Role in Developer Portal
 The default monetization settings require the developer to be included as a 'Monetization Administrator' so that they can see the 'Monetization' menu. If a developer does not have access to this menu then they will not be able to purchase any rate plans.  
 
 ![monetization menu](images/monetization-menu.png)
