@@ -20,7 +20,7 @@ The following is the general flow for prepaid developers.
 2. Before they can purchase a rate plan they must create a company.  This is not a [company](https://docs.apigee.com/api-platform/monetization/manage-companies-developers) in Apigee Edge which can have multiple developer associated with it.
 ![create a company](images/purchase-rateplan1-company-settings.png)
 
-3. Developer must enter their company info.  This info is used as the billing address to the payment provider. Notice that this developer is a 'prepaid' developer.
+3. Developer must enter their company info.  This info is used as the billing address to the payment provider. Notice that this developer is a `prepaid` developer.
 ![company details](images/purchase-rateplan2-company-details.png)
 
 4. The developer must accept the terms and conditions.
@@ -57,7 +57,7 @@ If you want to limit a rate plan to subset of developers, then there are two way
 
 ### Restrict to a specific developer
 1. [Create an API Package](https://docs.apigee.com/api-platform/monetization/create-api-packages)
-2. [Create a rate plan](https://docs.apigee.com/api-platform/monetization/create-rate-plans) and then select 'Developer' as the **Standard or Developer** option. Once you select this option the rate plan will only be available for that specific developer.
+2. [Create a rate plan](https://docs.apigee.com/api-platform/monetization/create-rate-plans) and then select `Developer` as the **Standard or Developer** option. Once you select this option the rate plan will only be available for that specific developer.
 
 ![rate plan developer](images/rate-plan-developer.png)
 
@@ -65,7 +65,7 @@ If you want to limit a rate plan to subset of developers, then there are two way
 ### Restrict to a subset of developers
 1. [Create a developer category](https://docs.apigee.com/api-platform/monetization/manage-developer-categories#ui).
 2. [Create an API Package](https://docs.apigee.com/api-platform/monetization/create-api-packages)
-3. [Create a rate plan](https://docs.apigee.com/api-platform/monetization/create-rate-plans) and then Select 'Developer Category' as the **Standard or Developer** option. **There may be a delay before your developer category is displayed in the drop-down menu.**
+3. [Create a rate plan](https://docs.apigee.com/api-platform/monetization/create-rate-plans) and then Select `Developer Category` as the **Standard or Developer** option. **There may be a delay before your developer category is displayed in the drop-down menu.**
 
 ![developer category](images/rate-plan-developer-category.png)
 
@@ -83,18 +83,18 @@ The screen shot below displays the message "You must accept the Terms and Condit
 However, a developer can continue to use the plans they purchased previously without interruption, even if they don't accept the new terms and conditions.  
 
 ## Change which role has access to the Monetization Role in Developer Portal
-The default monetization settings require the developer to be included as a 'Monetization Administrator' so that they can see the 'Monetization' menu. If a developer does not have access to this menu then they will not be able to purchase any rate plans.  
+The default monetization settings require the developer to be included as a `Monetization Administrator` so that they can see the `Monetization` menu. If a developer does not have access to this menu then they will not be able to purchase any rate plans.  
 
 ![monetization menu](images/monetization-menu.png)
 
 You can change this setting so that the Monetization role is associated to either the Developer or Finance administrator.
 1. Login to your Developer Portal as an Administrator.
 
-2. Click 'Configuration' > 'Monetization settings'
+2. Click `Configuration` > `Monetization settings`
 
-3. On this menu you change the 'Monetization role' to apply to the:
-  * 'Developer'
-  * 'Finance Administrator'
-  * 'Monetization Administrator'
+3. On this menu you change the `Monetization role` to apply to the:
+  * `Developer`
+  * `Finance Administrator`
+  * `Monetization Administrator`
 
 ![monetization configuration](images/monetization-configuration.png)
