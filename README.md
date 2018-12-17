@@ -77,6 +77,156 @@ If you want to limit a rate plan to subset of developers, then there are two way
 
 ![developer category](images/rate-plan-developer-category.png)
 
+4. Get the developer category ID.
+
+```
+curl -X GET \
+  http://IP:8080/v1/mint/organizations/demo/developer-categories \
+  -H 'authorization: Basic {apigee_orgadmin_username:apigee_orgadmin_password}' \
+  -d grant_type=client_credentials
+```
+
+Response
+```
+{
+  "developerCategory" : [ {
+    "description" : "internal devs",
+    "id" : "fb7d3319-8ef7-44ad-a0ac-de3013ff580e",
+    "name" : "internal-developer"
+  } ],
+  "totalRecords" : 1
+}
+```
+
+
+5. Assign the Developer to the Developer Category with the following API calls.
+* Fetch the Developer
+
+```
+curl -X GET \
+  http://IP:8080/v1/organizations/demo/developers/{DEVELOPER_EMAIL} \
+  -H 'authorization: Basic {apigee_orgadmin_username:apigee_orgadmin_password}' \
+```
+
+Response
+```
+{
+    "apps": [],
+    "companies": [
+        "partnercompany",
+        "partnercompany2"
+    ],
+    "email": "partner1@partnercompany.com",
+    "developerId": "5gT48mICxL4i6cNF",
+    "firstName": "partner1",
+    "lastName": "partner1",
+    "userName": "partner1@partnercompany.com",
+    "organizationName": "demo",
+    "status": "active",
+    "attributes": [
+        {
+            "name": "MINT_COMPANY_ID"
+        },
+        {
+            "name": "MINT_BILLING_TYPE",
+            "value": "PREPAID"
+        },
+        {
+            "name": "MINT_DEVELOPER_LEGAL_NAME"
+        },
+        {
+            "name": "MINT_REGISTRATION_ID"
+        },
+        {
+            "name": "MINT_TAX_EXEMPT_AUTH_NO"
+        },
+        {
+            "name": "MINT_DEVELOPER_PHONE"
+        },
+        {
+            "name": "MINT_DEVELOPER_CATEGORY"
+        },
+        {
+            "name": "MINT_DEVELOPER_TYPE",
+            "value": "UNTRUSTED"
+        },
+        {
+            "name": "MINT_DEVELOPER_ADDRESS"
+        },
+        {
+            "name": "MINT_ROLES",
+            "value": "[[\"Monetization Administrator\"]]"
+        }
+    ],
+    "createdAt": 1540925940606,
+    "createdBy": "opdk@opdk.com",
+    "lastModifiedAt": 1541085005626,
+    "lastModifiedBy": "opdk@opdk.com"
+}
+```
+
+* Update the Developer by copying the response payload from the previous request and update the MINT_DEVELOPER_CATEGORY with the ID from the response in step 4.
+```
+curl -X PUT \
+  http://IP:8080/v1/organizations/demo/developers/{DEVELOPER_EMAIL} \
+  -H 'authorization: Basic {apigee_orgadmin_password:apigee_orgadmin_password}' \
+  -H 'content-type: application/json' \
+  -d '{
+      "apps": [],
+      "companies": [
+          "partnercompany",
+          "partnercompany2"
+      ],
+      "email": "partner1@partnercompany.com",
+      "developerId": "5gT48mICxL4i6cNF",
+      "firstName": "partner1",
+      "lastName": "partner1",
+      "userName": "partner1@partnercompany.com",
+      "organizationName": "demo",
+      "status": "active",
+      "attributes": [
+          {
+              "name": "MINT_COMPANY_ID"
+          },
+          {
+              "name": "MINT_BILLING_TYPE",
+              "value": "PREPAID"
+          },
+          {
+              "name": "MINT_DEVELOPER_LEGAL_NAME"
+          },
+          {
+              "name": "MINT_REGISTRATION_ID"
+          },
+          {
+              "name": "MINT_TAX_EXEMPT_AUTH_NO"
+          },
+          {
+              "name": "MINT_DEVELOPER_PHONE"
+          },
+          {
+              "name": "MINT_DEVELOPER_CATEGORY",
+              "value": "fb7d3319-8ef7-44ad-a0ac-de3013ff580e"
+          },
+          {
+              "name": "MINT_DEVELOPER_TYPE",
+              "value": "UNTRUSTED"
+          },
+          {
+              "name": "MINT_DEVELOPER_ADDRESS"
+          },
+          {
+              "name": "MINT_ROLES",
+              "value": "[[\"Monetization Administrator\"]]"
+          }
+      ],
+      "createdAt": 1540925940606,
+      "createdBy": "opdk@opdk.com",
+      "lastModifiedAt": 1541085005626,
+      "lastModifiedBy": "opdk@opdk.com"
+  }'
+```
+
 ## Terms and Conditions
 If an administrator adds a new terms and conditions to the Organization's profile (Edge -> Admin > Organization Profile), then the developer must accept the new terms and conditions before they purchase a new rate plan.  
 
