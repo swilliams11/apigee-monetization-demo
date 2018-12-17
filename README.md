@@ -17,31 +17,39 @@ The following is the general flow for prepaid developers.
 
 1. Developer attempts to purchase a rate plan.
 
-2. Before they can purchase a rate plan they must create a company.  This is not a [company](https://docs.apigee.com/api-platform/monetization/manage-companies-developers) in Apigee Edge which can have multiple developer associated with it.
+2. Before they can purchase a rate plan they must create a company.  This is not a [company](https://docs.apigee.com/api-platform/monetization/manage-companies-developers) in Apigee Edge which can have multiple developers associated with it.
+
 ![create a company](images/purchase-rateplan1-company-settings.png)
 
 3. Developer must enter their company info.  This info is used as the billing address to the payment provider. Notice that this developer is a `prepaid` developer.
+
 ![company details](images/purchase-rateplan2-company-details.png)
 
 4. The developer must accept the terms and conditions.
+
 ![accept terms and conditions](images/purchase-rateplan3-accept-terms.png)
 
 5. The developer accepts the terms and conditions.
+
 ![accept terms and conditions](images/purchase-rateplan4-terms-conditions-page.png)
 
 6. Now the developer is able to purchase the plan.
 ![purchase plan](images/purchase-rateplan5-can-purchase.png)
 
 7. If they don't have sufficient funds on their account then they must add money to their account.
+
 ![add money](images/purchase-rateplan6-insufficent-funds.png)
 
 8. The checkout form is display and auto-populated with the information the developer entered on the company details page.
+
 ![checkout](images/purchase-rateplan7-checkout.png)
 
 9. Developer can review their order. In this case the default WorldPay account is already configured and setup.
+
 ![checkout](images/purchase-rateplan8-review-order.png)
 
 10. Developer is directed to the WorldPay site to enter their credit card information.
+
 ![worldpay](images/purchase-rateplan9-cc-info.png)
 
 11. TODO
