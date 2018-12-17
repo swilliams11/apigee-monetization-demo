@@ -10,6 +10,8 @@ This documentation assumes that you are familiar with [Apigee Monetization conce
 * [Limiting a Rate Plan to subset of developers](#limiting-a-rate-plan-to-subset-of-developers)
 * [Terms and Conditions](#terms-and-conditions)
 * [Change which role has access to the Monetization Role in Developer Portal](#change-which-role-has-access-to-the-monetization-role-in-developer-portal)
+* [Common Drush Commands](#common-drush-commands)
+* [Taxonomy Access Control](#taxonomy-access-control)
 
 
 ## Prepaid Developer Flow
@@ -82,8 +84,7 @@ If you want to limit a rate plan to subset of developers, then there are two way
 ```
 curl -X GET \
   http://IP:8080/v1/mint/organizations/demo/developer-categories \
-  -H 'authorization: Basic {apigee_orgadmin_username:apigee_orgadmin_password}' \
-  -d grant_type=client_credentials
+  -H 'authorization: Basic {apigee_orgadmin_username:apigee_orgadmin_password}'
 ```
 
 Response
@@ -105,7 +106,7 @@ Response
 ```
 curl -X GET \
   http://IP:8080/v1/organizations/demo/developers/{DEVELOPER_EMAIL} \
-  -H 'authorization: Basic {apigee_orgadmin_username:apigee_orgadmin_password}' \
+  -H 'authorization: Basic {apigee_orgadmin_username:apigee_orgadmin_password}'
 ```
 
 Response
@@ -256,3 +257,9 @@ You can change this setting so that the Monetization role is associated to eithe
   * `Monetization Administrator`
 
 ![monetization configuration](images/monetization-configuration.png)
+
+## Common Drush commands
+The [common drush commands](https://docs.apigee.com/private-cloud/v4.18.05/commonly-used-drush-commands) can be used to modify your Developer Portal configuration.
+
+## Taxonomy Access Control
+The [Taxonomy Access Control](https://community.apigee.com/content/kbentry/15364/content-access-control-on-developer-portal-smartdo.html) module allows you to control visibility of API SmartDocs via developer roles.  
