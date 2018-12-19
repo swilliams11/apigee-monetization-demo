@@ -5,7 +5,10 @@ This repository walks through some basic use cases of how to configure Monetizat
 ## Assumptions
 This documentation assumes that you are familiar with [Apigee Monetization concepts](https://docs.apigee.com/api-platform/monetization/basics-monetization) and that you are comfortable setting up [Monetization rate plans](https://docs.apigee.com/api-platform/monetization/create-rate-plans).
 
+
 ## TOC
+* [WorldPay](#worldpay)
+* [Setup Apigee Monetization in Drupal and Apigee Edge](#setup-apigee-monetization-in-drupal-and-apigee-edge)
 * [Prepaid Developer Flow](#prepaid-developer-flow)
 * [Limiting a Rate Plan to subset of developers](#limiting-a-rate-plan-to-subset-of-developers)
 * [Terms and Conditions](#terms-and-conditions)
@@ -13,6 +16,49 @@ This documentation assumes that you are familiar with [Apigee Monetization conce
 * [Common Drush Commands](#common-drush-commands)
 * [Taxonomy Access Control](#taxonomy-access-control)
 
+## WorldPay
+Apigee supports integration with [WorldPay](https://www.worldpay.com) for [prepaid accounts](https://docs.apigee.com/api-platform/monetization/manage-prepaid-balances).  If you plan to support [postpaid accounts](https://docs.apigee.com/api-platform/monetization/manage-postpaid-balances), then they will need to pay you outside of Apigee (assuming that you are using standard monetization). You can still use WorldPay to collect the payment for postpaid accounts, but the default monetization modules do not provide support for accepting payments for postpaid developers within the Developer Portal.
+
+Sign up for a WorldPay account.  
+**TODO - specify the exact account type they need.**
+
+## Setup Apigee Monetization in Drupal and Apigee Edge
+[Configure monetization in the developer portal.](https://docs.apigee.com/api-platform/monetization/configure-monetization-developer-portal)
+
+Once you setup the `Provider ID` in the Developer Portal, then you must create the [payment provider](https://docs.apigee.com/api-platform/monetization/manage-prepaid-balances.html#worldpay-edge) in Apigee Edge.  The curl command to create the payment provider is shown below.
+
+
+### Create the Payment Provider in Edge
+
+[Requirements](https://docs.apigee.com/api-platform/monetization/manage-prepaid-balances.html#worldpay-edge):
+* authType	- Installation ID provided by the payment provider.
+* credential	- Base64-encoded credentials (username:XMLpassword) for your Worldpay merchant account; username is equivalent to the merchant code (in all caps) and XMLpassword specifies the XML password you set in the previous step, when setting up your Worldpay merchant account.
+* endpoint - 	Endpoint to access the payment provider
+  For test accounts, use: https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp
+  For production accounts, use: https://secure.worldpay.com/jsp/merchant/xml/paymentService.jsp
+* merchantCode	- Merchant code provided by the payment provider to the API consumer
+* name	- Name to use for the provider, which should match the Provider ID you entered in the Developer Portal.
+
+```
+curl -X POST \
+  https://IP:8080/v1/mint/organizations/{ORG_NAME}/providers -u apigee_email:apigee_password \
+  -H 'content-type: application/json' \
+  -d '{
+  "authType" : "{YOUR_WORLDPAY_INSTALLATION_ID}",
+  "credential" : "{WORLDPAY_XMLUSERNAME:WORLDPAY_XMLPASSWORD}",
+  "description" : "Worldpay payment provider",
+  "endpoint" : "https://secure-test.worldpay.com/jsp/merchant/xml/paymentService.jsp",
+  "merchantCode" : "WORLDPAY_MERCHANT_CODE",
+  "name" : "{PROVIDER_ID_ENTERED_IN_DEVELOPER_PORTAL}"
+}'
+```
+
+### Get the Payment Providers
+```
+curl  -X GET \
+"https://api.enterprise.apigee.com/v1/mint/organizations/{ORG_NAME}/providers" \
+-u email:password
+```
 
 ## Prepaid Developer Flow
 The following is the general flow for prepaid developers.  
