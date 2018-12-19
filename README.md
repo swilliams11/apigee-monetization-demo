@@ -15,6 +15,7 @@ This documentation assumes that you are familiar with [Apigee Monetization conce
 * [Change which role has access to the Monetization Role in Developer Portal](#change-which-role-has-access-to-the-monetization-role-in-developer-portal)
 * [Common Drush Commands](#common-drush-commands)
 * [Taxonomy Access Control](#taxonomy-access-control)
+* [Developer Portal APIs module](#developer-portal-apis-module)
 
 ## WorldPay
 Apigee supports integration with [WorldPay](https://www.worldpay.com) for [prepaid accounts](https://docs.apigee.com/api-platform/monetization/manage-prepaid-balances).  If you plan to support [postpaid accounts](https://docs.apigee.com/api-platform/monetization/manage-postpaid-balances), then they will need to pay you outside of Apigee (assuming that you are using standard monetization). You can still use WorldPay to collect the payment for postpaid accounts, but the default monetization modules do not provide support for accepting payments for postpaid developers within the Developer Portal.
@@ -309,3 +310,8 @@ The [common drush commands](https://docs.apigee.com/private-cloud/v4.18.05/commo
 
 ## Taxonomy Access Control
 The [Taxonomy Access Control](https://community.apigee.com/content/kbentry/15364/content-access-control-on-developer-portal-smartdo.html) module allows you to control visibility of API SmartDocs via developer roles.  
+
+## Developer Portal APIs module
+If you want to automate the deployment and publishing of your OpenAPI specifications to the Drupal Developer Portal, then review the following links.
+* [Apigee Community article on SmartDocs](https://community.apigee.com/articles/30739/apis-for-publishing-smartdocs-on-developer-portal.html)
+* [SmartDocs Github repository](https://github.com/apigeecs/smartdocs_service)
