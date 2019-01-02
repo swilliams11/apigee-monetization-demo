@@ -20,8 +20,11 @@ This documentation assumes that you are familiar with [Apigee Monetization conce
 ## WorldPay
 Apigee supports integration with [WorldPay](https://www.worldpay.com) for [prepaid accounts](https://docs.apigee.com/api-platform/monetization/manage-prepaid-balances).  If you plan to support [postpaid accounts](https://docs.apigee.com/api-platform/monetization/manage-postpaid-balances), then they will need to pay you outside of Apigee (assuming that you are using standard monetization). You can still use WorldPay to collect the payment for postpaid accounts, but the default monetization modules do not provide support for accepting payments for postpaid developers within the Developer Portal.
 
-Sign up for a WorldPay account.  
+* Sign up for a WorldPay account.  
 **TODO - specify the exact account type they need.**
+
+* [WorldPay Test Credit Card Numbers](http://support.worldpay.com/support/kb/gg/corporate-gateway-guide/content/reference/testvalues.htm)
+
 
 ## Setup Apigee Monetization in Drupal and Apigee Edge
 [Configure monetization in the developer portal.](https://docs.apigee.com/api-platform/monetization/configure-monetization-developer-portal)
